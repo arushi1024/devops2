@@ -8,16 +8,22 @@ pipeline {
         }
         stage('Build') {
             steps {
+                // Ensure execute permissions for build1.sh
+                sh 'chmod +x build1.sh'
                 sh './build1.sh'
             }
         }
         stage('Test') {
             steps {
+                // Ensure execute permissions for run-tests.sh
+                sh 'chmod +x run-tests.sh'
                 sh './run-tests.sh'
             }
         }
         stage('Deploy') {
             steps {
+                // Ensure execute permissions for deploy.sh
+                sh 'chmod +x deploy.sh'
                 sh './deploy.sh'
             }
         }
